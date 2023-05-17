@@ -1,21 +1,15 @@
-import { useQuery, gql } from '@apollo/client';
+import { useQuery  } from '@apollo/client';
+import { loader } from 'graphql.macro';
 import { Layout, Spin, theme } from "antd";
 
 import { GetHelloQuery, GetHelloQueryVariables } from '../../graphql/generated/schema';
-import GET_HELLO_QUERY from '../../graphql/getHelloQuery.graphql';
 
 const { Content } = Layout;
-const GET_HELLO = gql`
-  query {
-    hello
-  }
-`;
+const GET_HELLO_QUERY = loader('../../graphql/getHelloQuery.graphql');
 
 function Main() {
   const { token: { colorBgContainer} } = theme.useToken();
   const { data, loading } = useQuery<GetHelloQuery, GetHelloQueryVariables>(GET_HELLO_QUERY);
-
-  console.log(data);
   if (loading) return <Spin />
   return (
     <Layout
@@ -30,7 +24,7 @@ function Main() {
           minHeight: 280,
         }}
       >
-        Test
+        {data?.hello}
       </Content>
     </Layout>
   );
