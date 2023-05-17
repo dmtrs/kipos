@@ -1,7 +1,7 @@
 import { Layout, theme } from "antd";
 const { Content } = Layout;
 
-function Home() {
+function Main() {
   const { token: { colorBgContainer} } = theme.useToken();
   return (
     <Layout
@@ -22,4 +22,4 @@ function Home() {
   );
 };
 
-export default Home;
+export default Main;
