@@ -1,10 +1,12 @@
+import { ApolloProvider } from '@apollo/client';
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
-import { Breadcrumb, Layout, Menu, MenuProps } from 'antd';
+import { Layout, Menu, MenuProps } from 'antd';
+import { HomeOutlined } from '@ant-design/icons';
 import 'antd/dist/reset.css';
 import './App.css';
-
 import Main from './pages/Main';
-import { HomeOutlined } from '@ant-design/icons';
+
+import { client } from './apollo';
 
 const { Header, Content, Footer  } = Layout;
 function App() {
@@ -23,9 +25,11 @@ function App() {
           <Menu onClick={onMenuItemClick} theme="dark" selectedKeys={['/']} mode="horizontal" items={items}/>
         </Header>
         <Content style={{ padding: '0 50px', margin: '24px 0' }}>
-          <Routes>
-            <Route path="/" element={<Main />} />
-          </Routes>
+          <ApolloProvider client={client}>
+            <Routes>
+              <Route path="/" element={<Main />} />
+            </Routes>
+          </ApolloProvider>
         </Content>
         <Footer style={{textAlign: 'center'}}>Copyright ©2023 @dmtrs. This work is licensed under the MIT License.</Footer>
     </Layout>
