@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.2.4",
     "antd": "^5.5.0",
     "apollo-boost": "^0.4.9",
+    "axios": "^1.4.0",
     "graphql": "^16.6.0",
     "graphql.macro": "^1.4.2",
     "react": "^18.2.0",

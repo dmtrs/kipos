@@ -10,7 +10,6 @@ const GET_HELLO_QUERY = loader('../../graphql/getHelloQuery.graphql');
 function Main() {
   const { token: { colorBgContainer} } = theme.useToken();
   const { data, loading } = useQuery<GetHelloQuery, GetHelloQueryVariables>(GET_HELLO_QUERY);
-  if (loading) return <Spin />
   return (
     <Layout
       style={{
@@ -24,7 +23,9 @@ function Main() {
           minHeight: 280,
         }}
       >
-        {data?.hello}
+        {loading? <Spin /> : (
+          <pre><code>{data?.hello}</code></pre>
+        )}
       </Content>
     </Layout>
   );
