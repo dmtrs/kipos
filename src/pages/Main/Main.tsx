@@ -24,7 +24,7 @@ function Main() {
         }}
       >
         {loading? <Spin /> : (
-          <pre><code>{data?.hello}</code></pre>
+          <pre><code>{data?.hello.id}</code></pre>
         )}
       </Content>
     </Layout>

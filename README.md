@@ -26,3 +26,7 @@ yarn start
 ```
 
 Ensure you have [Node.js](https://nodejs.org) and [Yarn](https://yarnpkg.com) installed on your machine before running the above commands. Once the development server starts, you can access the application at `http://localhost:3000` in your browser.
+
+### Development
+
+Note that the npx graphql-codegen command should be run whenever there are updates to your GraphQL schema (`*.graphql|gql` files). It generates TypeScript typings based on your schema, which helps with type safety and autocompletion when writing GraphQL queries in our code.

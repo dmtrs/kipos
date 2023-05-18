@@ -1,3 +1,7 @@
+type Paper {
+    id: ID!
+}
+
 type Query {
-    hello: String!
+    hello: Paper!
 }

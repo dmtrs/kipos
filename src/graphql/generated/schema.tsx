@@ -12,12 +12,17 @@ export type Scalars = {
   Float: number;
 };
 
+export type Paper = {
+  __typename?: 'Paper';
+  id: Scalars['ID'];
+};
+
 export type Query = {
   __typename?: 'Query';
-  hello: Scalars['String'];
+  hello: Paper;
 };
 
 export type GetHelloQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetHelloQuery = { __typename?: 'Query', hello: string };
+export type GetHelloQuery = { __typename?: 'Query', hello: { __typename?: 'Paper', id: string } };

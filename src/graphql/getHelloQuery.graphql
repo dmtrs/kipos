@@ -1,3 +1,5 @@
 query GetHello {
-  hello @client
+  hello @client {
+    id
+  }
 }
