@@ -12,7 +12,6 @@ const { Header, Content, Footer  } = Layout;
 function App() {
   let navigate = useNavigate();
   let location = useLocation();
-  console.log(location);
   const items = [
     { label: 'Main', key: '/', icon: <HomeOutlined /> }
   ];
@@ -22,7 +21,7 @@ function App() {
   return (
     <Layout>
         <Header>
-          <Menu onClick={onMenuItemClick} theme="dark" selectedKeys={['/']} mode="horizontal" items={items}/>
+          <Menu onClick={onMenuItemClick} theme="dark" selectedKeys={[location.pathname]} mode="horizontal" items={items}/>
         </Header>
         <Content style={{ padding: '0 50px', margin: '24px 0' }}>
           <ApolloProvider client={client}>
