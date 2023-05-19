@@ -1,6 +1,6 @@
 import { useQuery  } from '@apollo/client';
 import { loader } from 'graphql.macro';
-import { Space, Layout, Spin, Divider, theme } from "antd";
+import { Space, Layout, Spin, theme } from "antd";
 import { Prompt } from './components';
 import { GetHelloQuery, GetHelloQueryVariables } from '../../graphql/generated/schema';
 
@@ -14,7 +14,7 @@ function Main() {
     <Layout
       style={{
         padding: '24px 0',
-        background: colorBgContainer,
+        //background: colorBgContainer,
       }}
     >
       <Content
