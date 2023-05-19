@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { Button, Input, InputProps, Tag,   } from 'antd'
 import { ImportOutlined } from '@ant-design/icons';
 import { debounce } from 'lodash';
@@ -29,15 +29,10 @@ function BasePrompt({ addon,  }: BasePromptProps) {
 
     const [state, setState] = useState<BasePromptState>(onChange(''));
 
-    const onChangeCallback: InputProps['onChange'] = useCallback(
-        (value: any) => debounce(
-            (e) => {
-                setState(onChange(e.target.value));
-            },
-            400
-        )(value),
-        [onChange]
-    );
+    const onChangeCallback: InputProps['onChange'] = debounce((e) => {
+            setState(onChange(e.target.value));
+        }, 400);
+
     const onSearchCallback = (e: any) => {
         let { status, value } = onChange(state.value);
         if (status==='' && value) {
