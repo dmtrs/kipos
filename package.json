@@ -14,8 +14,10 @@
     "antd": "^5.5.0",
     "apollo-boost": "^0.4.9",
     "axios": "^1.4.0",
+    "doi-regex": "^0.1.13",
     "graphql": "^16.6.0",
     "graphql.macro": "^1.4.2",
+    "lodash.debounce": "^4.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
@@ -27,12 +29,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:storybook/recommended"
     ]
   },
   "browserslist": {
@@ -51,6 +56,20 @@
     "@graphql-codegen/cli": "^3.3.1",
     "@graphql-codegen/typescript": "^3.0.4",
     "@graphql-codegen/typescript-operations": "^3.0.4",
-    "fs-promise": "^2.0.3"
+    "@storybook/addon-essentials": "^7.0.12",
+    "@storybook/addon-interactions": "^7.0.12",
+    "@storybook/addon-links": "^7.0.12",
+    "@storybook/blocks": "^7.0.12",
+    "@storybook/preset-create-react-app": "^7.0.12",
+    "@storybook/react": "^7.0.12",
+    "@storybook/react-webpack5": "^7.0.12",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@types/doi-regex": "^0.1.0",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint-plugin-storybook": "^0.6.12",
+    "fs-promise": "^2.0.3",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.12",
+    "webpack": "^5.83.1"
   }
 }

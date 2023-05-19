@@ -1,7 +1,7 @@
 import { useQuery  } from '@apollo/client';
 import { loader } from 'graphql.macro';
-import { Layout, Spin, theme } from "antd";
-
+import { Space, Layout, Spin, theme } from "antd";
+import { Prompt } from './components';
 import { GetHelloQuery, GetHelloQueryVariables } from '../../graphql/generated/schema';
 
 const { Content } = Layout;
@@ -14,7 +14,7 @@ function Main() {
     <Layout
       style={{
         padding: '24px 0',
-        background: colorBgContainer,
+        //background: colorBgContainer,
       }}
     >
       <Content
@@ -23,6 +23,8 @@ function Main() {
           minHeight: 280,
         }}
       >
+        <Prompt />
+        <Space />
         {loading? <Spin /> : (
           <pre><code>{data?.hello.id}</code></pre>
         )}
