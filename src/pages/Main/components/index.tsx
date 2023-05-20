@@ -1,1 +1,1 @@
-export { default as Prompt } from './Prompt';
+export { default as Prompt } from './Prompt/Prompt';
