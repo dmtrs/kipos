@@ -1,10 +1,11 @@
 import { ApolloProvider } from '@apollo/client';
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import { Layout, Menu, MenuProps } from 'antd';
-import { HomeOutlined } from '@ant-design/icons';
+import { HomeOutlined, DotChartOutlined } from '@ant-design/icons';
 import 'antd/dist/reset.css';
 import './App.css';
 import Main from './pages/Main';
+import Paper from './pages/Paper';
 
 import { client } from './apollo';
 
@@ -13,7 +14,8 @@ function App() {
   let navigate = useNavigate();
   let location = useLocation();
   const items = [
-    { label: 'Main', key: '/', icon: <HomeOutlined /> }
+    { label: 'Main', key: '/', icon: (<HomeOutlined />) },
+    { label: 'Paper', key: '/paper', icon: (<DotChartOutlined />) }
   ];
   const onMenuItemClick: MenuProps['onClick'] = (e) => {
     navigate(e.key);
@@ -27,6 +29,7 @@ function App() {
           <ApolloProvider client={client}>
             <Routes>
               <Route path="/" element={<Main />} />
+              <Route path="/paper/:doi" element={<Paper />} />
             </Routes>
           </ApolloProvider>
         </Content>
