@@ -30,6 +30,7 @@ function BasePrompt({ addon, onPrompt, ...props }: BasePromptProps) {
   return (
 		<>
       <Input
+				size={props.size}
         prefix={prefix}
         disabled={state.loading}
         status={state?.status}
@@ -37,6 +38,7 @@ function BasePrompt({ addon, onPrompt, ...props }: BasePromptProps) {
         onChange={onChangeCallback}
         onPressEnter={onSearchCallback}
         suffix={<Button
+					size={props.size}
           onClick={onSearchCallback}
           disabled={state.disabled}
           loading={state.loading}
@@ -48,7 +50,7 @@ function BasePrompt({ addon, onPrompt, ...props }: BasePromptProps) {
     </>
   );
 }
-function Prompt({ onPrompt, state }: PromptProps) {
+function Prompt({ onPrompt, state, size }: PromptProps) {
   return <BasePrompt
     state={state??{
       loading: false,
@@ -59,6 +61,7 @@ function Prompt({ onPrompt, state }: PromptProps) {
     }}
     onPrompt={onPrompt}
     addon={addons[0]}
+		size={size}
   />
 }
 export default Prompt;
