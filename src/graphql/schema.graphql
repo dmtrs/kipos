@@ -1,7 +1,10 @@
 type Paper {
     id: ID!
+    about: String!
+    abstract: String!
+    keywords: [String]!
 }
 
 type Query {
-    hello: Paper!
+    hello(doi: ID!): Paper!
 }
