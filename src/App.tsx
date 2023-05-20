@@ -1,6 +1,8 @@
+
 import { ApolloProvider } from '@apollo/client';
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
-import { Layout, Menu, MenuProps } from 'antd';
+import { useState } from 'react';
+import { Layout, Menu, MenuProps, Select, Space, Typography } from 'antd';
 import { HomeOutlined, DotChartOutlined } from '@ant-design/icons';
 import 'antd/dist/reset.css';
 import './App.css';
@@ -8,11 +10,17 @@ import Main from './pages/Main';
 import Paper from './pages/Paper';
 
 import { client } from './apollo';
+import { SizeType } from './types';
 
 const { Header, Content, Footer  } = Layout;
+const { Text } = Typography;
+const { Option } = Select;
+
 function App() {
   let navigate = useNavigate();
   let location = useLocation();
+	const [ size, setSize ] = useState<SizeType>('middle');
+
   const items = [
     { label: 'Main', key: '/', icon: (<HomeOutlined />) },
     { label: 'Paper', key: '/paper', icon: (<DotChartOutlined />) }
@@ -28,12 +36,23 @@ function App() {
         <Content style={{ padding: '0 50px', margin: '24px 0' }}>
           <ApolloProvider client={client}>
             <Routes>
-              <Route path="/" element={<Main />} />
+              <Route path="/" element={<Main  size={size}/>} />
               <Route path="/paper/:doi" element={<Paper />} />
             </Routes>
           </ApolloProvider>
         </Content>
-        <Footer style={{textAlign: 'center'}}>Copyright ©2023 @dmtrs. This work is licensed under the MIT License.</Footer>
+        <Footer style={{textAlign: 'center'}}>
+                    <Space>
+                            <Text>Copyright ©2023 @dmtrs. This work is licensed under the MIT License.</Text>
+                            <Select
+                                    defaultValue={`${size}`}
+                                    onChange={(value) =>  {
+                                            setSize(value as SizeType);
+                                    }}
+                                    options={['small','middle', 'large'].map((value) => ({ label: value[0].toUpperCase(), value }))}
+                            />
+                    </Space>
+            </Footer>
     </Layout>
   );
 };

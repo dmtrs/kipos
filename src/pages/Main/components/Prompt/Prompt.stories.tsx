@@ -8,6 +8,9 @@ const { Content } = Layout;
 const meta = {
   title: 'Components/Prompt',
   component: Prompt,
+	args: {
+		size: 'large'
+	},
   decorators: [
     (Story) => (<Layout><Content><Story /></Content></Layout>)
   ],

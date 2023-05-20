@@ -3,11 +3,12 @@ import { loader } from 'graphql.macro';
 import { Space, Layout, Spin, theme } from "antd";
 import { Prompt } from './components';
 import { GetHelloQuery, GetHelloQueryVariables } from '../../graphql/generated/schema';
+import { SizeType } from '../../types';
 
 const { Content } = Layout;
 const GET_HELLO_QUERY = loader('../../graphql/getHelloQuery.graphql');
 
-function Main() {
+function Main({ size }: { size: SizeType}) {
   const { token: { colorBgContainer} } = theme.useToken();
   const { data, loading } = useQuery<GetHelloQuery, GetHelloQueryVariables>(GET_HELLO_QUERY);
   return (
@@ -23,7 +24,7 @@ function Main() {
           minHeight: 280,
         }}
       >
-        <Prompt />
+        <Prompt size={size}/>
         <Space />
         {loading? <Spin /> : (
           <pre><code>{data?.hello.id}</code></pre>

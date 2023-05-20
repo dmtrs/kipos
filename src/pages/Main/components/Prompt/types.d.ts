@@ -1,3 +1,5 @@
+import { SizeType } from "../../../../types";
+
 type BasePromptStatus = 'error' | 'warning' | '';
 
 interface BasePromptState {
@@ -18,10 +20,12 @@ interface PromptAddon {
 export interface PromptProps {
   state?: BasePromptState
   onPrompt?: (e: { addon: string, value: string }) => void;
+	size: SizeType;
 };
 
 export interface BasePromptProps {
   addon: PromptAddon;
   state: BasePromptState;
   onPrompt?: (e: { addon: string, value: string }) => void;
+	size: SizeType;
 };

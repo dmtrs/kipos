@@ -8,6 +8,9 @@ import { client } from '../../apollo';
 const meta = {
   title: 'Pages/Main',
   component: Main,
+	args: {
+		size: 'large'
+	},
   decorators: [
     (Story) => (<ApolloProvider client={client}><Story /></ApolloProvider>)
   ],
