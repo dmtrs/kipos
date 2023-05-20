@@ -54,7 +54,7 @@ function Prompt({ onPrompt, state, size }: PromptProps) {
   return <BasePrompt
     state={state??{
       loading: false,
-      disabled: false,
+      disabled: true,
       value: '',
       status: '',
       log: '',
