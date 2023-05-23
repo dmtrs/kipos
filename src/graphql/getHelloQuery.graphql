@@ -1,5 +1,8 @@
-query GetHello {
-  hello @client {
+query GetHello($doi: ID!) {
+  hello(doi: $doi) @client {
     id
+    about
+    abstract
+    keywords
   }
 }

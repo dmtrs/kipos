@@ -14,7 +14,10 @@ export type Scalars = {
 
 export type Paper = {
   __typename?: 'Paper';
+  about: Scalars['String'];
+  abstract: Scalars['String'];
   id: Scalars['ID'];
+  keywords: Array<Maybe<Scalars['String']>>;
 };
 
 export type Query = {
@@ -22,7 +25,14 @@ export type Query = {
   hello: Paper;
 };
 
-export type GetHelloQueryVariables = Exact<{ [key: string]: never; }>;
+
+export type QueryHelloArgs = {
+  doi: Scalars['ID'];
+};
+
+export type GetHelloQueryVariables = Exact<{
+  doi: Scalars['ID'];
+}>;
 
 
-export type GetHelloQuery = { __typename?: 'Query', hello: { __typename?: 'Paper', id: string } };
+export type GetHelloQuery = { __typename?: 'Query', hello: { __typename?: 'Paper', id: string, about: string, abstract: string, keywords: Array<string | null> } };
