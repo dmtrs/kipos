@@ -3,6 +3,7 @@ type Paper {
     about: String!
     abstract: String!
     keywords: [String]!
+    refs: [Paper]!
 }
 
 type Query {

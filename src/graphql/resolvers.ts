@@ -40,6 +40,12 @@ export const resolvers = {
           about: data.title,
           abstract: data.abstract,
           keywords: data.fieldsOfStudy,
+          refs: data.references.map((ref: { doi: string; abstract: string; title: string; intent: string[] }) => ({
+            id: ref.doi,
+            about: ref.title,
+            abstract: ref.abstract,
+            keywords: ref.intent,
+          }))
         });
       });
     }

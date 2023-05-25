@@ -1,5 +1,4 @@
-import { loader } from 'graphql.macro';
-import { Space, Layout, theme } from "antd";
+import { Space, Layout } from "antd";
 import { Prompt } from './components';
 import { SizeType } from '../../types';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const { Content } = Layout;
 
 function Main({ size }: { size: SizeType}) {
-  const { token: { colorBgContainer} } = theme.useToken();
 	const navigate = useNavigate();
   return (
     <Layout
