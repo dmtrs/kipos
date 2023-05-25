@@ -1,6 +1,6 @@
 
 import { ApolloProvider } from '@apollo/client';
-import { Route, Routes, useNavigate, useLocation, useParams, Link } from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Layout, Menu, MenuProps, Select, Space, Typography } from 'antd';
 import { HomeOutlined, DotChartOutlined } from '@ant-design/icons';

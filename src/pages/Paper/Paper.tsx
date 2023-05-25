@@ -1,17 +1,14 @@
 import { useQuery } from "@apollo/client";
-import { Space, Layout, Card, Typography, Tag, Skeleton, Spin, Row, Col, Pagination } from "antd";
-import { Link, useParams, useSearchParams  } from "react-router-dom";
+import { Space, Layout, Card, Typography, Tag, Skeleton } from "antd";
+import { useParams, useSearchParams  } from "react-router-dom";
 import { GetHelloQuery, GetHelloQueryVariables } from "../../graphql/generated/schema";
 import { loader } from "graphql.macro";
 import { SizeType } from "../../types";
 import { Paper as PaperSchema } from "../../graphql/generated/schema";
 
-import { chunk } from "lodash";
-import { useCallback } from "react";
 import { PaperCollection } from "./components";
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
-const { Text } = Typography;
 const GET_HELLO_QUERY = loader('../../graphql/getHelloQuery.graphql');
 
 const titleLevelFromSize = (size: SizeType): 1 | 2 | 3 => {
