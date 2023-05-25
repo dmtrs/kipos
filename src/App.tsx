@@ -1,6 +1,6 @@
 
 import { ApolloProvider } from '@apollo/client';
-import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation, useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Layout, Menu, MenuProps, Select, Space, Typography } from 'antd';
 import { HomeOutlined, DotChartOutlined } from '@ant-design/icons';
@@ -14,7 +14,6 @@ import { SizeType } from './types';
 
 const { Header, Content, Footer  } = Layout;
 const { Text } = Typography;
-const { Option } = Select;
 
 function App() {
   let navigate = useNavigate();
@@ -39,6 +38,11 @@ function App() {
 				}, '')]} mode="horizontal" items={items}/>
 			</Header>
 			<Content style={{ padding: '0 50px', margin: '24px 0' }}>
+				<Select
+					defaultValue={`${size}`}
+					onChange={(value) =>  {setSize(value as SizeType)}}
+					options={['small','middle', 'large'].map((value) => ({ label: value[0].toUpperCase(), value }))}
+				/>
 				<ApolloProvider client={client}>
 					<Routes>
 						<Route path="/" element={<Main  size={size} />} />
@@ -48,12 +52,7 @@ function App() {
 			</Content>
 			<Footer style={{textAlign: 'center'}}>
 				<Space>
-					<Text>Copyright ©2023 @dmtrs. This work is licensed under the MIT License.</Text>
-					<Select
-						defaultValue={`${size}`}
-						onChange={(value) =>  {setSize(value as SizeType)}}
-						options={['small','middle', 'large'].map((value) => ({ label: value[0].toUpperCase(), value }))}
-					/>
+					<Text>Copyright ©2023 <Link to="https://github.com/dmtrs/kipos" ><Typography.Link>dmtrs/kipos.git</Typography.Link></Link><br/>This work is licensed under the MIT License.</Text>
 				</Space>
 			</Footer>
 		</Layout>

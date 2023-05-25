@@ -4,5 +4,10 @@ query GetHello($doi: ID!) {
     about
     abstract
     keywords
+    refs {
+      id
+      about
+      keywords
+    }
   }
 }

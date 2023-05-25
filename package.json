@@ -17,6 +17,7 @@
     "doi-regex": "^0.1.13",
     "graphql": "^16.6.0",
     "graphql.macro": "^1.4.2",
+    "lodash.chunk": "^4.2.0",
     "lodash.debounce": "^4.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
